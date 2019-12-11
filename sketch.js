@@ -28,14 +28,7 @@ function setup() {
     //init hammer touch.
     var hammertime = new Hammer(canvasElement);
     hammertime.on('tap', function() {
-        console.log("tap");
-        loop();
-        startText.hidden = true;
-        scoreText.hidden = false;
-        //startSound.play();
-        if (gameOver) {
-            location.reload();
-        }
+        pressed();
     });
     
     //hide unrelevant text.
@@ -108,13 +101,17 @@ function draw() {
 //for easy play on pc, REMOVE BEFORE RELEASE.
 function keyPressed() {
     if (key == ' ' && !gameOver) {
-        bird.up();
-        startText.hidden = true;
-        scoreText.hidden = false;
-        loop();
-        if (gameOver) {
-            //reload page.
-            location.reload();
-        }
+        pressed();
+    }
+}
+
+function pressed() {
+    bird.up();
+    startText.hidden = true;
+    scoreText.hidden = false;
+    loop();
+    if (gameOver) {
+        //reload page.
+        location.reload();
     }
 }
