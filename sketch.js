@@ -9,10 +9,10 @@ var gameOver = false;
 var score = 0;
 
 //loading sound below !!! HANGS ON 'LOADING...' !!!
-function preload() {
-    soundFormats('mp3', 'wav');
-    startSound = loadSound('sound\start1.wav');
-}
+// function preload() {
+//     soundFormats('mp3', 'wav');
+//     startSound = loadSound('sound\start1.wav');
+// }
 
 function setup() {
     //init game.
@@ -32,7 +32,7 @@ function setup() {
         loop();
         startText.hidden = true;
         scoreText.hidden = false;
-        startSound.play();
+        //startSound.play();
         if (gameOver) {
             location.reload();
         }
