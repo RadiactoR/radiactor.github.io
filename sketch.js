@@ -6,23 +6,32 @@ var pipes = [];
 var gameOver = false;
 var score = 0;
 
-function clicked() {
-    bird.up();
-    loop();
-    startText.hidden = true;
-    scoreText.hidden = false;
-    if (gameOver) {
-        location.reload();
-    }
-}
-
 function setup() {
+
+
     //init game
     var canvas = createCanvas(vw, (vh * 0.8));
     canvas.parent("canvas-container");
 
     //getting html elements
     var canvasElement = document.getElementById("canvas-container");
+    var hammertime = new Hammer(canvasElement);
+    hammertime.on('tap', function() {
+        console.log("tap");
+        loop();
+        startText.hidden = true;
+        scoreText.hidden = false;
+        if (gameOver) {
+            location.reload();
+        }
+    });
+    //     loop();
+    //     startText.hidden = true;
+    //     scoreText.hidden = false;
+    //     if (gameOver) {
+    //         location.reload();
+    //     }
+    // });
     var startText = document.getElementById("startText");
     var endText = document.getElementById("endText");
     var scoreText = document.getElementById("scoreText");
@@ -35,7 +44,6 @@ function setup() {
     pipes.push(new Pipe());
 
     noLoop();
-    canvasElement.addEventListener('click', clicked);
 }
 
 function draw() {
