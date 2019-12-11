@@ -1,8 +1,8 @@
 function Pipe() {
     this.top = random(30, height/2);
-    this.gap = 0.3 * height;
+    this.gap = 150;
     this.x = width;
-    this.w = 0.2 * width;
+    this.w = 60;
     this.speed = 3;
     
     this.cleared = false;

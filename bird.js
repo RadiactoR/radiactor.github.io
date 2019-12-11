@@ -1,11 +1,11 @@
 function Bird() {
     this.y = height/2;
     this.x = width/2;
-    this.d = 0.1 * width;
+    this.d = 30;
     this.r = this.d/2;
 
     this.gravity = 0.6;
-    this.lift = -0.021 * height;
+    this.lift = -11;
     this.velocity = 0;
 
     this.show = function() {
