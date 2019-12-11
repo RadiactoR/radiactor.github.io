@@ -43,7 +43,7 @@ function draw() {
     background(100, 100, 255);
     bird.update();
 
-    if (frameCount % (0.1 * width) == 0 && !gameOver) {
+    if (frameCount % 80 == 0 && !gameOver) {
         pipes.push(new Pipe());
     }
 
