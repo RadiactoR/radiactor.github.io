@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: bisque;
+}
+
+p {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 40px;
+    color: white;
+    position: absolute;
+    top: 25%;
+    text-align: center;
+}
+
+#scoreText {
+    top: 10%;
+    left: 46%;
+}
