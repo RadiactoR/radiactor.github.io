@@ -79,7 +79,6 @@ function draw() {
             }
             gameOver = true;
             endText.hidden = false;
-            scoreText.hidden = true;
             for (p of pipes) {
                 p.speed = 0;
             }
