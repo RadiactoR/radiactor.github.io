@@ -46,7 +46,7 @@ function setup() {
     bird = new Bird();
     spr_bird = createSprite(bird.x, bird.y, bird.d, bird.d);
     spr_bird.addImage(img);
-    
+
     pipes.push(new Pipe());
 
     //play the start jingle
@@ -128,6 +128,7 @@ function pressed() {
     }
     gameStarted = true;
     bird.up();
+    spr_bird.rotation(100);
     startText.hidden = true;
     scoreText.hidden = false;
     loop();
