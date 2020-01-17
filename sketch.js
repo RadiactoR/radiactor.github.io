@@ -128,7 +128,7 @@ function pressed() {
     }
     gameStarted = true;
     bird.up();
-    spr_bird.rotation(100);
+    spr_bird._rotation(100);
     startText.hidden = true;
     scoreText.hidden = false;
     loop();
