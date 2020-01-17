@@ -9,9 +9,9 @@ function Bird() {
     this.velocity = 0;
 
     this.show = function() {
-        //fill(255);
-        drawSprite(spr_bird);
-        //ellipse(this.x, this.y, this.d, this.d);
+        fill(255);
+        //rawSprite(spr_bird);
+        ellipse(this.x, this.y, this.d, this.d);
     }
     
     this.up = function() {

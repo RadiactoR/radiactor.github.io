@@ -16,9 +16,13 @@ var die_sound = new Audio("sound/die.mp3");
 //sprites
 var img;
 var spr_bird;
+var bgx1 = 0;
+var bgx2 = vw;
+var scrollSpeed = 10;
 
 function preload() {
-    img = loadImage("img/flappyb.png");
+    /*img = loadImage("img/flappyb.png");*/
+    bgimg = loadImage("img/backg.png");
 }
 
 function setup() {
@@ -44,8 +48,10 @@ function setup() {
 
     //give birth to a new bird.
     bird = new Bird();
+    /*
     spr_bird = createSprite(bird.x, bird.y, bird.d, bird.d);
     spr_bird.addImage(img);
+    */
 
     pipes.push(new Pipe());
 
@@ -59,8 +65,22 @@ function setup() {
 function draw() {
     noStroke(); //no black borders on graphics.
     background(100, 100, 255); //blue sky background.
+
+    //drawing background image with scroll
+    image(bgimg, bgx1, 0, vw, vh);
+    image(bgimg, bgx2, 0, vw, vh);
+  
+    x1 -= scrollSpeed;
+    x2 -= scrollSpeed;
+  
+    if (x1 < -width){
+        x1 = width;
+    }
+    if (x2 < -width){
+        x2 = width;
+    }
+  
     bird.update(); //each frame, update the bird's velocity.
-    spr_bird.update();
 
     //spawn new pipe every 80th frame.
     if (frameCount % 80 == 0 && !gameOver) {
