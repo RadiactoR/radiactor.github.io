@@ -19,8 +19,6 @@ var spr_bird;
 
 function preload() {
     img = loadImage("img/flappyb.png");
-    spr_bird = createSprite(bird.x, bird.y, bird.d, bird.d);
-    spr_bird.addImage(img);
 }
 
 function setup() {
@@ -46,6 +44,9 @@ function setup() {
 
     //give birth to a new bird.
     bird = new Bird();
+    spr_bird = createSprite(bird.x, bird.y, bird.d, bird.d);
+    spr_bird.addImage(img);
+    
     pipes.push(new Pipe());
 
     //play the start jingle
