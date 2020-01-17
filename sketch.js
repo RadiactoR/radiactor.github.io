@@ -13,6 +13,16 @@ var start_sound = new Audio("sound/start1.wav");
 var cleared_sound = new Audio("sound/cleared2.wav")
 var die_sound = new Audio("sound/die.mp3");
 
+//sprites
+var img;
+var spr_bird;
+
+function preload() {
+    img = loadImage("img/flappyb.png");
+    spr_bird = createSprite(100, 100);
+    spr_bird.addImage(img);
+}
+
 function setup() {
     //init game.
     var canvas = createCanvas(vw, (vh * 0.8));
