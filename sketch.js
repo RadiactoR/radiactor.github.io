@@ -17,13 +17,11 @@ var die_sound = new Audio("sound/die.mp3");
 var img;
 var spr_bird;
 
-/*
 function preload() {
     img = loadImage("img/flappyb.png");
-    spr_bird = createSprite(100, 100);
+    spr_bird = createSprite(bird.x, bird.y, bird.d, bird.d);
     spr_bird.addImage(img);
 }
-*/
 
 function setup() {
     //init game.
