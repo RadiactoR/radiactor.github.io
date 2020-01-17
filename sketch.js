@@ -60,6 +60,7 @@ function draw() {
     noStroke(); //no black borders on graphics.
     background(100, 100, 255); //blue sky background.
     bird.update(); //each frame, update the bird's velocity.
+    spr_bird.update();
 
     //spawn new pipe every 80th frame.
     if (frameCount % 80 == 0 && !gameOver) {
