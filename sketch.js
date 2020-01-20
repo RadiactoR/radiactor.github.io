@@ -68,7 +68,7 @@ function draw() {
 
     //drawing background image with scroll
     image(bgimg, bgx1, 0, vw, vh);
-    image(bgimg, bgx2, 0, vw, vh);
+    image(bgimg, 2 * bgx2, 0, -vw, vh);
   
     bgx1 -= scrollSpeed;
     bgx2 -= scrollSpeed;
