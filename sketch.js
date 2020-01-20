@@ -18,7 +18,7 @@ var img;
 var spr_bird;
 var bgx1 = 0;
 var bgx2 = vw;
-var scrollSpeed = 10;
+var scrollSpeed = 3;
 
 function preload() {
     /*img = loadImage("img/flappyb.png");*/
