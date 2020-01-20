@@ -73,11 +73,11 @@ function draw() {
     bgx1 -= scrollSpeed;
     bgx2 -= scrollSpeed;
   
-    if (x1 < -width){
-        x1 = width;
+    if (bgx1 < -width){
+        bgx1 = width;
     }
-    if (x2 < -width){
-        x2 = width;
+    if (bgx2 < -width){
+        bgx2 = width;
     }
   
     bird.update(); //each frame, update the bird's velocity.
