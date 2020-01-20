@@ -70,8 +70,8 @@ function draw() {
     image(bgimg, bgx1, 0, vw, vh);
     image(bgimg, bgx2, 0, vw, vh);
   
-    x1 -= scrollSpeed;
-    x2 -= scrollSpeed;
+    bgx1 -= scrollSpeed;
+    bgx2 -= scrollSpeed;
   
     if (x1 < -width){
         x1 = width;
