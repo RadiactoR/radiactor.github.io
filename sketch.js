@@ -128,6 +128,7 @@ function draw() {
         gameOver = true
         for (pipe of pipes) {
             pipe.speed = 0;
+            scrollSpeed = 0;
         }
         endText.hidden = false;
     }
