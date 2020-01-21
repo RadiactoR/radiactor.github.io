@@ -23,6 +23,7 @@ var scrollSpeed = 1;
 function preload() {
     /*img = loadImage("img/flappyb.png");*/
     bgimg = loadImage("img/backg.png");
+    bg2img = loadImage("img/backg2.png");
 }
 
 function setup() {
@@ -68,7 +69,7 @@ function draw() {
 
     //drawing background image with scroll
     image(bgimg, bgx1, 0, vw, vh);
-    image(bgimg, 2 * bgx2, 0, -vw, vh);
+    image(bg2img, bgx2, 0, vw, vh);
   
     bgx1 -= scrollSpeed;
     bgx2 -= scrollSpeed;
