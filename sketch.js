@@ -11,7 +11,7 @@ var score = 0;
 
 var start_sound = new Audio("sound/start1.wav");
 var cleared_sound = new Audio("sound/cleared2.wav")
-var die_sound = new Audio("sound/die.mp3");
+var die_sound = new Audio("sound/flappydie.wav");
 
 //sprites
 var img;
