@@ -17,7 +17,7 @@ var die_sound = new Audio("sound/die.wav");
 var img;
 var spr_bird;
 var bgx1 = 0;
-var bgx2 = vw;
+var bgx2 = calculateAspectRadioFit();
 var scrollSpeed = 1;
 
 function preload() {
