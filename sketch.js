@@ -13,6 +13,12 @@ var start_sound = new Audio("sound/start1.wav");
 var cleared_sound = new Audio("sound/cleared2.wav")
 var die_sound = new Audio("sound/die.wav");
 
+function calculateAspectRadioFit(vw, vh, maxWidth = 1920, maxHeight = 1080) {
+    var ratio = Math.min(maxWidth / vw, maxHeight / vh);
+    console.log((vw * ratio)/(vh * ratio));
+    return vw * ratio;
+}
+
 //sprites
 var img;
 var spr_bird;
@@ -61,11 +67,6 @@ function setup() {
 
     //don't start the game until screen tapped.
     noLoop();
-}
-
-function calculateAspectRadioFit(vw, vh, maxWidth = 1920, maxHeight = 1080) {
-    var ratio = Math.min(maxWidth / vw, maxHeight / vh);
-    return vw * ratio;
 }
 
 function draw() {
