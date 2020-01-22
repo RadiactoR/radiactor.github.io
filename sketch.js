@@ -63,13 +63,18 @@ function setup() {
     noLoop();
 }
 
+function calculateAspectRadioFit(vw, vh, maxWidth = 3000000, maxHeight = vh) {
+    var ratio = Math.min(maxWidth / vw, maxHeight / vh);
+    return vw * ratio;
+}
+
 function draw() {
     noStroke(); //no black borders on graphics.
     background(100, 100, 255); //blue sky background.
 
     //drawing background image with scroll
-    image(bgimg, bgx1, 0, vw, vh);
-    image(bg2img, bgx2, 0, vw, vh);
+    image(bgimg, bgx1, 0, calculateAspectRadioFit(), vh);
+    image(bg2img, bgx2, 0, calculateAspectRadioFit(), vh);
   
     bgx1 -= scrollSpeed;
     bgx2 -= scrollSpeed;
