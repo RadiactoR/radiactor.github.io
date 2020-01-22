@@ -63,7 +63,7 @@ function setup() {
     noLoop();
 }
 
-function calculateAspectRadioFit(vw, vh, maxWidth = 3000000, maxHeight = vh) {
+function calculateAspectRadioFit(vw, vh, maxWidth = 1920, maxHeight = 1080) {
     var ratio = Math.min(maxWidth / vw, maxHeight / vh);
     return vw * ratio;
 }
