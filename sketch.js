@@ -79,11 +79,11 @@ function draw() {
     bgx1 -= scrollSpeed;
     bgx2 -= scrollSpeed;
   
-    if (bgx1 < -width){
-        bgx1 = width;
+    if (bgx1 < -calculateAspectRadioFit()){
+        bgx1 = calculateAspectRadioFit();
     }
-    if (bgx2 < -width){
-        bgx2 = width;
+    if (bgx2 < -calculateAspectRadioFit()){
+        bgx2 = calculateAspectRadioFit();
     }
   
     bird.update(); //each frame, update the bird's velocity.
