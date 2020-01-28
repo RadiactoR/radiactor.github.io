@@ -80,6 +80,7 @@ function draw() {
     bgx1 -= scrollSpeed;
     bgx2 -= scrollSpeed;
   
+    //teleporting first image to end of second, creating "infinite scrolling"
     if (bgx1 < -calculateAspectRadioFit()){
         bgx1 = calculateAspectRadioFit();
     }
