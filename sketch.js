@@ -20,11 +20,13 @@ function calculateAspectRadioFit(vw, vh, maxWidth = 1920, maxHeight = 1080) {
 }
 
 //sprites
+/*
 var img;
 var spr_bird;
 var bgx1 = 0;
 var bgx2 = calculateAspectRadioFit();
 var scrollSpeed = 1;
+*/
 
 function preload() {
     /*img = loadImage("img/flappyb.png");*/
@@ -74,19 +76,19 @@ function draw() {
     background(100, 100, 255); //blue sky background.
 
     //drawing background image with scroll
-    image(bgimg, bgx1, 0, calculateAspectRadioFit(), vh);
-    image(bg2img, bgx2, 0, calculateAspectRadioFit(), vh);
+    //image(bgimg, bgx1, 0, calculateAspectRadioFit(), vh);
+    //image(bg2img, bgx2, 0, calculateAspectRadioFit(), vh);
   
-    bgx1 -= scrollSpeed;
-    bgx2 -= scrollSpeed;
+    //bgx1 -= scrollSpeed;
+    //bgx2 -= scrollSpeed;
   
     //teleporting first image to end of second, creating "infinite scrolling"
-    if (bgx1 < -calculateAspectRadioFit()){
+    /* if (bgx1 < -calculateAspectRadioFit()){
         bgx1 = calculateAspectRadioFit();
     }
     if (bgx2 < -calculateAspectRadioFit()){
         bgx2 = calculateAspectRadioFit();
-    }
+    } */
   
     bird.update(); //each frame, update the bird's velocity.
 
