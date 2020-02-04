@@ -13,7 +13,7 @@ var start_sound = new Audio("sound/start1.wav");
 var cleared_sound = new Audio("sound/cleared2.wav");
 var die_sound = new Audio("sound/die.wav");
 
-var canTapScreen = true;
+var birdCanJump = true;
 
 function calculateAspectRadioFit(vw, vh, maxWidth = 1920, maxHeight = 1080) {
     var ratio = Math.min(maxWidth / vw, maxHeight / vh);
@@ -35,9 +35,7 @@ function setup() {
     //init hammer touch.
     var hammertime = new Hammer(canvasElement);
     hammertime.on('tap', function() {
-        if (canTapScreen) {
-            pressed();
-        }
+        pressed();
     });
     
     //hide unrelevant text.
@@ -92,7 +90,7 @@ function draw() {
             }
             gameOver = true;
             endText.hidden = false;
-            canPressSpace = false;
+            birdCanJump = false;
             for (p of pipes) {
                 p.speed = 0;
             }
@@ -131,7 +129,9 @@ function pressed() {
         start_sound.play();
     }
     gameStarted = true;
-    bird.up();
+    if (birdCanJump) {
+        bird.up();
+    }
     startText.hidden = true;
     scoreText.hidden = false;
     loop();
