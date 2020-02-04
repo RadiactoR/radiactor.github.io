@@ -13,7 +13,7 @@ var start_sound = new Audio("sound/start1.wav");
 var cleared_sound = new Audio("sound/cleared2.wav");
 var die_sound = new Audio("sound/die.wav");
 
-var canPressSpace = true;
+var canTapScreen = true;
 
 function calculateAspectRadioFit(vw, vh, maxWidth = 1920, maxHeight = 1080) {
     var ratio = Math.min(maxWidth / vw, maxHeight / vh);
@@ -35,7 +35,9 @@ function setup() {
     //init hammer touch.
     var hammertime = new Hammer(canvasElement);
     hammertime.on('tap', function() {
-        pressed();
+        if (canTapScreen) {
+            pressed();
+        }
     });
     
     //hide unrelevant text.
@@ -119,7 +121,7 @@ function draw() {
 
 //for easy play on pc, REMOVE BEFORE RELEASE.
 function keyPressed() {
-    if (key == ' ' && !gameOver && canPressSpace) {
+    if (key == ' ' && !gameOver) {
         pressed();
     }
 }
