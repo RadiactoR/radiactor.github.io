@@ -10,7 +10,7 @@ var gameStarted = false;
 var score = 0;
 
 var start_sound = new Audio("sound/start1.wav");
-var cleared_sound = new Audio("sound/cleared2.wav")
+var cleared_sound = new Audio("sound/cleared2.wav");
 var die_sound = new Audio("sound/die.wav");
 
 function calculateAspectRadioFit(vw, vh, maxWidth = 1920, maxHeight = 1080) {
@@ -30,8 +30,8 @@ var scrollSpeed = 1;
 
 function preload() {
     /*img = loadImage("img/flappyb.png");*/
-    bgimg = loadImage("img/backg.png");
-    bg2img = loadImage("img/backg2.png");
+    /*bgimg = loadImage("img/backg.png");
+    bg2img = loadImage("img/backg2.png");*/
 }
 
 function setup() {
