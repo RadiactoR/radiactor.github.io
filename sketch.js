@@ -12,13 +12,35 @@ var score = 0;
 var start_sound = new Audio("sound/start1.wav");
 var cleared_sound = new Audio("sound/cleared2.wav");
 var die_sound = new Audio("sound/die.wav");
+var end_sound = new Audio("sound/flappydie.wav")
 
 var birdCanJump = true;
+
+var allowReload = false;
+
+function sleep(ms) { // Universal sleep function
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 function calculateAspectRadioFit(vw, vh, maxWidth = 1920, maxHeight = 1080) {
     var ratio = Math.min(maxWidth / vw, maxHeight / vh);
     console.log((vw * ratio)/(vh * ratio));
     return vw * ratio;
+}
+
+async function gameOverLogic() {
+    gameOver = true;
+    birdCanJump = false;
+    for (p of pipes) {
+        p.speed = 0;
+    }
+    die_sound.play();
+    await sleep(500); // Sleep for .5 seconds before playing end jingle
+    end_sound.play();
+    await sleep(850); // Sleep for 0.85 seconds before displaying end text (sync with jingle :3)
+    allowReload = true
+    endText.hidden = false;
+    endText.hidden = false;
 }
 
 function setup() {
@@ -32,7 +54,7 @@ function setup() {
     var endText = document.getElementById("endText");
     var scoreText = document.getElementById("scoreText");
 
-    //init hammer touch.
+    //init hammer touch, for use with touchscreens.
     var hammertime = new Hammer(canvasElement);
     hammertime.on('tap', function() {
         pressed();
@@ -55,7 +77,7 @@ function setup() {
     noLoop();
 }
 
-function draw() {
+async function draw() {
     noStroke(); //no black borders on graphics.
     background(100, 100, 255); //blue sky background.
   
@@ -83,16 +105,17 @@ function draw() {
             }
         }
 
-        //check if bird hits pipe.
+        //end game if bird crashes into pipe
         if (pipe.hits(bird)) {
             if (!gameOver){
-                die_sound.play();
+                gameOverLogic()
             }
-            gameOver = true;
-            endText.hidden = false;
-            birdCanJump = false;
-            for (p of pipes) {
-                p.speed = 0;
+        }
+
+        //end game if bird crashes into ground
+        if (bird.y >= (vh * 0.8)){
+            if (!gameOver){
+                gameOverLogic()
             }
         }
 
@@ -102,24 +125,13 @@ function draw() {
         }
     }
 
-    //if bird crashes into ground, end the game.
-    if (bird.y >= (vh * 0.8)){
-        gameOver = true
-        for (pipe of pipes) {
-            pipe.speed = 0;
-            scrollSpeed = 0;
-        }
-        endText.hidden = false;
-    }
-
     //finally, draw the bird.
     bird.show(); 
-
 }
 
-//for easy play on pc, REMOVE BEFORE RELEASE.
-function keyPressed() {
-    if (key == ' ' && !gameOver) {
+//defines [SPACE] as jump key on PC
+async function keyPressed() {
+    if (key == ' ') {
         pressed();
     }
 }
@@ -135,7 +147,7 @@ function pressed() {
     startText.hidden = true;
     scoreText.hidden = false;
     loop();
-    if (gameOver) {
+    if (gameOver && allowReload) {
         //reload page.
         location.reload();
     }
